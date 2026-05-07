@@ -5,6 +5,7 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(200).end();
 
   const APP_ID       = (process.env.RAKUTEN_APP_ID || "").trim();
+  const ACCESS_KEY   = (process.env.RAKUTEN_ACCESS_KEY || "").trim();
   const AFFILIATE_ID = (process.env.RAKUTEN_AFFILIATE_ID || "").trim();
   const { tags, month } = req.query;
 
@@ -23,10 +24,10 @@ export default async function handler(req, res) {
 
   const m = parseInt(month) || new Date().getMonth() + 1;
   let kw = "ナチュラルワイン";
-  if ([3,4,5].includes(m))   kw = "ナチュラルワイン 白ワイン";
-  if ([6,7,8].includes(m))   kw = "ペットナット 自然派ワイン";
-  if ([9,10,11].includes(m)) kw = "ナチュラルワイン 赤ワイン";
-  if ([12,1,2].includes(m))  kw = "オレンジワイン 自然派";
+  if ([3,4,5].includes(m))   kw = "ナチュラルワイン";
+  if ([6,7,8].includes(m))   kw = "ナチュラルワイン";
+  if ([9,10,11].includes(m)) kw = "ナチュラルワイン";
+  if ([12,1,2].includes(m))  kw = "ナチュラルワイン";
 
   if (tags) {
     const t = tags.split(",")[0];
