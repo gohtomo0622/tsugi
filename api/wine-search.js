@@ -35,18 +35,19 @@ export default async function handler(req, res) {
   }
 
   // 最小限のパラメータのみ使用
-  const params = new URLSearchParams({
-    applicationId:  APP_ID,
-    keyword:        kw,
-    hits:           "12",
-    formatVersion:  "2",
-  });
+const params = new URLSearchParams({
+  applicationId: APP_ID,
+  accessKey:     ACCESS_KEY, // ← この1行を忘れずに追加！
+  keyword:       kw,
+  hits:          "12",
+  formatVersion: "2",
+});
 
   // アフィリエイトIDがあれば追加
   if (AFFILIATE_ID) params.set("affiliateId", AFFILIATE_ID);
 
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?${params}`;
-
+  const url = `https://openapi.rakuten.co.jp/services/api/IchibaItem/Search/v2?${params}`;
+  
   try {
     const r = await fetch(url);
     const text = await r.text();
