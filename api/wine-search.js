@@ -17,6 +17,7 @@ export default async function handler(req, res) {
 
   // タグ→キーワード変換
   const TAG_KEYWORDS = {
+<<<<<<< HEAD
     earthy:       "ナチュラルワイン 赤",
     funky:        "自然派ワイン ビオ",
     mineral:      "ナチュラルワイン 白",
@@ -35,6 +36,13 @@ export default async function handler(req, res) {
     complex:      "ナチュラルワイン 複雑",
     light:        "ナチュラルワイン 軽口",
     umami:        "自然派ワイン 赤",
+=======
+    earthy:"ナチュラルワイン 赤", funky:"自然派ワイン", mineral:"ナチュラルワイン",
+    oxidative:"オレンジワイン", aged:"ナチュラルワイン 熟成", amber:"オレンジワイン",
+    petnat:"ペットナット", effervescent:"ペットナット", fruity:"ナチュラルワイン",
+    floral:"自然派ワイン 白", crisp:"ナチュラルワイン", bold:"ナチュラルワイン",
+    wild:"自然派ワイン", natural:"ナチュラルワイン", organic:"オーガニックワイン",
+>>>>>>> d4729fb9de2c014e9c509ba7112f10d83b1ad101
   };
 
   // 季節キーワード
@@ -50,6 +58,7 @@ export default async function handler(req, res) {
     if (TAG_KEYWORDS[t]) kw = TAG_KEYWORDS[t];
   }
 
+<<<<<<< HEAD
   // OpenAPI v2 エンドポイント
   const params = new URLSearchParams({
     applicationId: APP_ID,
@@ -58,11 +67,26 @@ export default async function handler(req, res) {
     hits:          "12",
     formatVersion: "2",
   });
+=======
+  // 最小限のパラメータのみ使用
+const params = new URLSearchParams({
+  applicationId: APP_ID,
+  accessKey:     ACCESS_KEY, // ← この1行を忘れずに追加！
+  keyword:       kw,
+  hits:          "12",
+  formatVersion: "2",
+});
+>>>>>>> d4729fb9de2c014e9c509ba7112f10d83b1ad101
 
   if (AFFILIATE_ID) params.set("affiliateId", AFFILIATE_ID);
 
+<<<<<<< HEAD
   const url = `https://openapi.rakuten.co.jp/v2/market/item/search?${params}`;
 
+=======
+  const url = `https://openapi.rakuten.co.jp/services/api/IchibaItem/Search/v2?${params}`;
+  
+>>>>>>> d4729fb9de2c014e9c509ba7112f10d83b1ad101
   try {
     const r = await fetch(url, {
       headers: { "Accept": "application/json" },
