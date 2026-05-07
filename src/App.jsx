@@ -1617,6 +1617,7 @@ function FinderScreen() {
     <div style={{paddingTop:24,animation:"fadeUp 0.4s ease"}}>
       {results.comment&&<div style={{background:"#FEF8F8",border:"1px solid #EDE6DC",borderLeft:"3px solid #8B1A2A",borderRadius:6,padding:"14px 16px",marginBottom:20,fontSize:13,lineHeight:1.8,color:"#5a3a3a",fontStyle:"italic"}}>🍷 {results.comment}</div>}
       {results.wines.map((wine,i)=><WineCard key={wine.id} wine={wine} rank={i+1} fb={fb[wine.id]} onFb={(id,v)=>setFb(p=>({...p,[id]:v}))}/>)}
+      <RakutenLiveSearch tags={sel.flatMap(s=>s.tags).slice(0,3)}/>
       <button onClick={()=>{setSel([]);setStep("select");setRes(null);}} style={{width:"100%",padding:"12px",background:"transparent",border:"1px solid #EDE6DC",color:"#8a7a68",borderRadius:6,fontSize:13,cursor:"pointer",marginTop:8}}>← 選び直す</button>
     </div>
   );
