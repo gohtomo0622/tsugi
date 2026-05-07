@@ -15,10 +15,10 @@ export default async function handler(req, res) {
 
   // タグ→キーワード
   const TAG_KEYWORDS = {
-    earthy:"ナチュラルワイン 赤", funky:"自然派ワイン", mineral:"ナチュラルワイン 白",
+    earthy:"ナチュラルワイン 赤", funky:"自然派ワイン", mineral:"ナチュラルワイン",
     oxidative:"オレンジワイン", aged:"ナチュラルワイン 熟成", amber:"オレンジワイン",
     petnat:"ペットナット", effervescent:"ペットナット", fruity:"ナチュラルワイン",
-    floral:"自然派ワイン 白", crisp:"ナチュラルワイン 白", bold:"ナチュラルワイン 赤",
+    floral:"自然派ワイン 白", crisp:"ナチュラルワイン", bold:"ナチュラルワイン",
     wild:"自然派ワイン", natural:"ナチュラルワイン", organic:"オーガニックワイン",
   };
 
